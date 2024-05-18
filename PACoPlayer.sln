@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{521F8968-FCF5-4459-9EEC-5D5F4289B17C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PACoPlayer.DebugTool", "src\PACoPlayer.DebugTool\PACoPlayer.DebugTool.csproj", "{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PACoPlayer.Decoder", "src\PACoPlayer.Decoder\PACoPlayer.Decoder.csproj", "{147A18C3-F403-44CB-8072-FEE49ED535BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A} = {521F8968-FCF5-4459-9EEC-5D5F4289B17C}
+		{147A18C3-F403-44CB-8072-FEE49ED535BA} = {521F8968-FCF5-4459-9EEC-5D5F4289B17C}
+	EndGlobalSection
+EndGlobal

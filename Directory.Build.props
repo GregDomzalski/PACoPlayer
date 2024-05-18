@@ -1,0 +1,30 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+    <!-- Package properties -->
+    <Version>1.0.0</Version>
+    <Authors>Greg Domzalski</Authors>
+    <Company>GregDom LLC</Company>
+
+    <!-- Publish properties -->
+    <PublishSelfContained>true</PublishSelfContained>
+
+    <!-- Trim properties -->
+<!--    <PublishAot>true</PublishAot>-->
+<!--    <PublishTrimmed>true</PublishTrimmed>-->
+<!--    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>-->
+
+    <!-- Code Analysis properties -->
+    <AnalysisLevel>8.0</AnalysisLevel>
+    <AnalysisMode>All</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+
+    <!-- Generated file properties -->
+    <ImplicitUsings>false</ImplicitUsings>
+
+    <!-- C# Language properties -->
+    <Nullable>enable</Nullable>
+
+  </PropertyGroup>
+</Project>

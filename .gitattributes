@@ -1,0 +1,95 @@
+# Referenced: https://github.com/gitattributes/gitattributes
+
+# Auto detect text files and perform LF normalization
+*          text=auto
+
+# General files
+*.md       text diff=markdown
+*.txt      text
+*.sql      text
+
+# Repo documentation
+AUTHORS           text
+CHANGELOG         text
+CHANGES           text
+CONTRIBUTING      text
+COPYING           text
+copyright         text
+*COPYRIGHT*       text
+INSTALL           text
+license           text
+LICENSE           text
+NEWS              text
+readme            text
+*README*          text
+TODO              text
+
+# Repo settings
+*.conf            text
+*.config          text
+.editorconfig     text
+.env              text
+.gitattributes    text
+.gitconfig        text
+*.lock            text -diff
+package.json      text eol=lf
+package-lock.json text eol=lf -diff
+
+# Web technology files
+*.css             text diff=css
+*.htm             text diff=html
+*.html            text diff=html
+*.js              text
+*.mjs             text
+*.cjs             text
+*.jsx             text
+*.sass            text
+*.scss            text diff=css
+*.ts              text
+*.tsx             text
+.htaccess         text
+tsconfig.json     linguist-language=JSON-with-Comments
+
+# Graphics
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.tif      binary
+*.tiff     binary
+*.ico      binary
+*.svg      text
+*.eps      binary
+
+# Scripts
+*.sh       text eol=lf
+*.cmd      text eol=crlf
+
+# PowerShell
+*.ps1      text eol=crlf
+*.ps1x     text eol=crlf
+*.psm1     text eol=crlf
+*.psd1     text eol=crlf
+*.ps1xml   text eol=crlf
+*.pssc     text eol=crlf
+*.psrc     text eol=crlf
+*.cdxml    text eol=crlf
+
+# Serialisation
+*.json     text
+*.toml     text
+*.xml      text
+*.yaml     text
+*.yml      text
+
+# Common .NET stack files
+*.cs       text diff=csharp
+*.cshtml   text diff=html
+*.csx      text diff=csharp
+*.sln      text eol=crlf
+*.csproj   text eol=crlf
+
+# Containers
+Dockerfile        text
+.devcontainer.json linguist-language=JSON-with-Comments
+devcontainer.json linguist-language=JSON-with-Comments
