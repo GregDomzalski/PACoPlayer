@@ -3,8 +3,4 @@
 
 namespace PACoPlayer.Decoder.DataTypes;
 
-public readonly record struct Rectangle(int Width, int Height)
-{
-    public override readonly string ToString() =>
-        $"{Width}x{Height}";
-}
+public record struct Point(int Left, int Top);

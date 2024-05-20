@@ -1,6 +1,7 @@
 // Copyright (c) GregDom LLC. All Rights Reserved.
 // This file is licensed for use under the MIT license.
 
+using System.Text;
 using System.Text.Json.Serialization;
 using PACoPlayer.Decoder.DataTypes;
 using Version = PACoPlayer.Decoder.DataTypes.Version;
@@ -67,4 +68,60 @@ public record FileHeader
     public int PackerVersionHigh => (int)BitMask.Get(Bits3, 0, 0x3FFF);
 
     public int FinishedFrames { get; init; }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+
+        _ = sb.AppendLine("CAVF Header:")
+            .AppendLine($"- Version: {Version}")
+            .AppendLine($"- Packer version: {PackerVersionHigh}.{PackerVersion} {(DebugVersion ? "Debug" : "")}")
+            .AppendLine($"- Video dimensions: {Dimensions}")
+            .AppendLine($"- Repeat X pixels {RepeatXPixels}, Y pixels {RepeatYPixels}")
+            .AppendLine($"- Bit depth: {BitDepth}")
+            .AppendLine($"- Default delay: {DefaultDelay}")
+            .AppendLine($"- Frame count: {FrameCount}")
+            .AppendLine($"- Chunk count: {ChunkCount}")
+            .AppendLine($"- Sound duration: {SoundMinutes:D2}m{SoundSeconds:D2}s")
+            .AppendLine($"- Sound sample rate: {SoundSampleRate}")
+            .AppendLine("- Options + flags:");
+
+        if (UserInterrupt) { _ = sb.AppendLine("  - User interruptible"); }
+
+        if (ChangeBitDepth) { _ = sb.AppendLine("  - Changes bit depth"); }
+
+        if (BlankFullScreen) { _ = sb.AppendLine("  - Blank full screen"); }
+
+        if (FileLoading) { _ = sb.AppendLine("  - File loading"); }
+
+        if (ChunkCoalescing) { _ = sb.AppendLine("  - Chunk coalescing"); }
+
+        if (Loop) { _ = sb.AppendLine("  - Looped"); }
+
+        if (NoTransitionOps) { _ = sb.AppendLine("  - No transition opcodes"); }
+
+        if (MaintainFramerate) { _ = sb.AppendLine("  - Maintain framerate"); }
+
+        if (HighLevelBlit) { _ = sb.AppendLine("  - Use high level blit routines"); }
+
+        if (ExactBitdepthOnly) { _ = sb.AppendLine("  - Exact bit depth only"); }
+
+        if (EatStoppingEvent) { _ = sb.AppendLine("  - Eat stopping event"); }
+
+        if (VerticalBlankSync) { _ = sb.AppendLine("  - Vertical blank sync"); }
+
+        if (BackgroundColor) { _ = sb.AppendLine("  - Background color"); }
+
+        if (Interlaced) { _ = sb.AppendLine("  - Interlaced"); }
+
+        if (Indirect) { _ = sb.AppendLine("  - Indirect"); }
+
+        if (SmallerPacking) { _ = sb.AppendLine("  - Smaller packing"); }
+
+        if (SoundFramerate) { _ = sb.AppendLine("  - Sound-based framerate");  }
+
+        if (WaitAtEnd) { _ = sb.AppendLine("  - Wait at end"); }
+
+        return sb.ToString();
+    }
 }

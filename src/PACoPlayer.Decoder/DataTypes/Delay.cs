@@ -7,5 +7,6 @@ namespace PACoPlayer.Decoder.DataTypes;
 
 public class Delay : ValueOf<short, Delay>
 {
-
+    public override string ToString() =>
+        $"{Value}";
 }

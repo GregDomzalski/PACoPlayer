@@ -20,4 +20,7 @@ public record ChunkHeader
     public bool Combinable => BitMask.Get(_bits, 29, 1) == 1;
     public int Filler => (int)BitMask.Get(_bits, 24, 0x1F);
     public int Length => (int)BitMask.Get(_bits, 0, 0x00FFFFFF);
+
+    public override string ToString() =>
+        $"SoundOnly = {SoundOnly}, Skippable = {Skippable}, Combinable = {Combinable}, Length = {Length:D5} bytes";
 }

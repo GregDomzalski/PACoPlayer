@@ -3,4 +3,8 @@
 
 namespace PACoPlayer.Decoder.DataTypes;
 
-public record struct Version(byte Major, byte Minor);
+public readonly record struct Version(byte Major, byte Minor)
+{
+    public override readonly string ToString() =>
+        $"{Major}.{Minor}";
+}

@@ -3,8 +3,11 @@
 
 namespace PACoPlayer.Decoder.DataTypes;
 
-public readonly record struct Rectangle(int Width, int Height)
+public enum PaletteTransitionWhen
 {
-    public override readonly string ToString() =>
-        $"{Width}x{Height}";
+    Now,
+    WithTransition,
+    AfterTransition,
+    OverTime,
+    JustBeforeTransition,
 }

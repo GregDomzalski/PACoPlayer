@@ -3,8 +3,9 @@
 
 namespace PACoPlayer.Decoder.DataTypes;
 
-public readonly record struct Rectangle(int Width, int Height)
+public enum CompressionKind
 {
-    public override readonly string ToString() =>
-        $"{Width}x{Height}";
+    None,
+    Rle,
+    RleInterlaced,
 }

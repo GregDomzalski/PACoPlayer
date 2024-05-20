@@ -41,4 +41,7 @@ public static class FileDecoder
 
     public static ChunkHeader DecodeChunkHeader(ref SpanReader reader) =>
         new(reader.ReadUInt32BigEndian());
+
+    public static ReadOnlySpan<byte> ReadNextChunk(ref SpanReader reader, int chunkLength) =>
+        reader.ReadBytes(chunkLength);
 }

@@ -4,10 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BinForge" Version="0.1.1"/>
+    <PackageReference Include="BinForge" Version="0.1.2"/>
     <PackageReference Include="ValueOf" Version="2.0.31"/>
   </ItemGroup>
 </Project>
