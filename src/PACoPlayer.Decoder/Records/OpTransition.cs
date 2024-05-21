@@ -20,11 +20,7 @@ public record OpTransition : OpHeader
         ChunkSize = reader.ReadByte();
         PartSize = reader.ReadByte();
 
-        if (Type == TransitionType.CustomTransition)
-        {
-            // TODO: Read custom
-            throw new NotSupportedException("Not sure how to know the size of 'custom' yet.");
-        }
+        if (Type == TransitionType.CustomTransition) { CustomData = reader.ReadBytes(header.Length - 9).ToArray(); }
     }
 
     public TransitionType Type { get; init; }
@@ -33,6 +29,7 @@ public record OpTransition : OpHeader
     public TimeSpan Duration { get; init; }
     public int ChunkSize { get; init; }
     public int PartSize { get; init; }
+    public ReadOnlyMemory<byte> CustomData { get; init; }
 
     public override string ToString()
     {
