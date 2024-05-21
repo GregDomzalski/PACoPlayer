@@ -31,6 +31,7 @@ public static class ChunkDecoder
             OpCodeKind.Delay => ReadDelayOpcode(ref reader, header),
             OpCodeKind.Sound => ReadSoundOpcode(ref reader, header),
             OpCodeKind.Bitmap => ReadBitmapOpcode(ref reader, header),
+            OpCodeKind.Break => ReadBreakOpcode(ref reader, header),
             OpCodeKind.EndOfChunk => ReadEndOfChunk(ref reader, header),
             _ => header,
         };
@@ -78,6 +79,9 @@ public static class ChunkDecoder
     }
 
     private static OpBitmap ReadBitmapOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
+
+    private static OpBreak ReadBreakOpcode(ref SpanReader reader, OpHeader header) =>
         new(header, ref reader);
 
     private static OpEndOfChunk ReadEndOfChunk(ref SpanReader _, OpHeader header) =>
