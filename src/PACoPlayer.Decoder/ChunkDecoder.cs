@@ -26,12 +26,16 @@ public static class ChunkDecoder
 
         return header.Kind switch
         {
+            OpCodeKind.Transition => ReadTransitionOpcode(ref reader, header),
             OpCodeKind.Palette => ReadPaletteOpcode(ref reader, header),
             OpCodeKind.Bitmap => ReadBitmapOpcode(ref reader, header),
             OpCodeKind.EndOfChunk => ReadEndOfChunk(ref reader, header),
             _ => header,
         };
     }
+
+    private static OpTransition ReadTransitionOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
 
     private static OpPalette ReadPaletteOpcode(ref SpanReader reader, OpHeader header) =>
         new(header, reader.ReadByte())
