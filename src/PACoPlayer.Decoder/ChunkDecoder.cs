@@ -29,6 +29,7 @@ public static class ChunkDecoder
             OpCodeKind.Transition => ReadTransitionOpcode(ref reader, header),
             OpCodeKind.Palette => ReadPaletteOpcode(ref reader, header),
             OpCodeKind.Delay => ReadDelayOpcode(ref reader, header),
+            OpCodeKind.Sound => ReadSoundOpcode(ref reader, header),
             OpCodeKind.Bitmap => ReadBitmapOpcode(ref reader, header),
             OpCodeKind.EndOfChunk => ReadEndOfChunk(ref reader, header),
             _ => header,
@@ -52,6 +53,9 @@ public static class ChunkDecoder
         };
 
     private static OpDelay ReadDelayOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
+
+    private static OpSound ReadSoundOpcode(ref SpanReader reader, OpHeader header) =>
         new(header, ref reader);
 
     private static Color[] ReadColorTable(ref SpanReader reader, byte numColors)
