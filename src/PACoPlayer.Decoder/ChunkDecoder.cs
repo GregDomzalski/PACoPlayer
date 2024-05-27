@@ -30,7 +30,11 @@ public static class ChunkDecoder
             OpCodeKind.Palette => ReadPaletteOpcode(ref reader, header),
             OpCodeKind.Delay => ReadDelayOpcode(ref reader, header),
             OpCodeKind.Sound => ReadSoundOpcode(ref reader, header),
+            OpCodeKind.Cycle => ReadCycleOpcode(ref reader, header),
+            OpCodeKind.Fill => ReadFillOpcode(ref reader, header),
+            OpCodeKind.Input => ReadInputOpcode(ref reader, header),
             OpCodeKind.Bitmap => ReadBitmapOpcode(ref reader, header),
+            OpCodeKind.RectangleCopy => ReadRectCopyOpcode(ref reader, header),
             OpCodeKind.Break => ReadBreakOpcode(ref reader, header),
             OpCodeKind.EndOfChunk => ReadEndOfChunk(ref reader, header),
             _ => header,
@@ -59,6 +63,15 @@ public static class ChunkDecoder
     private static OpSound ReadSoundOpcode(ref SpanReader reader, OpHeader header) =>
         new(header, ref reader);
 
+    private static OpCycle ReadCycleOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
+
+    private static OpFill ReadFillOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
+
+    private static OpInput ReadInputOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
+
     private static Color[] ReadColorTable(ref SpanReader reader, byte numColors)
     {
         reader.Skip(2); // Filler bytes
@@ -79,6 +92,9 @@ public static class ChunkDecoder
     }
 
     private static OpBitmap ReadBitmapOpcode(ref SpanReader reader, OpHeader header) =>
+        new(header, ref reader);
+
+    private static OpRectangleCopy ReadRectCopyOpcode(ref SpanReader reader, OpHeader header) =>
         new(header, ref reader);
 
     private static OpBreak ReadBreakOpcode(ref SpanReader reader, OpHeader header) =>
