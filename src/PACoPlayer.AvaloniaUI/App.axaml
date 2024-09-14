@@ -1,0 +1,22 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PACoPlayer.AvaloniaUI.App"
+             RequestedThemeVariant="Dark">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme>
+            <FluentTheme.Palettes>
+                <ColorPaletteResources x:Key="Dark"
+                                       BaseHigh="#EEEEEE"
+                                       RegionColor="#111315"
+                                       AltMediumLow="#222325"
+                                       BaseLow="#222325"
+                                       BaseMedium="#222325"
+                                       ListLow="#334555"
+                                       Accent="Gray"
+                                       />
+            </FluentTheme.Palettes>
+        </FluentTheme>
+    </Application.Styles>
+</Application>

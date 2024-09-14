@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PACoPlayer.DebugTool", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PACoPlayer.Decoder", "src\PACoPlayer.Decoder\PACoPlayer.Decoder.csproj", "{147A18C3-F403-44CB-8072-FEE49ED535BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PACoPlayer.AvaloniaUI", "src\PACoPlayer.AvaloniaUI\PACoPlayer.AvaloniaUI.csproj", "{716E1E45-7DBE-4279-B5AD-B0F76C2A4FC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +28,14 @@ Global
 		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{147A18C3-F403-44CB-8072-FEE49ED535BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{716E1E45-7DBE-4279-B5AD-B0F76C2A4FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{716E1E45-7DBE-4279-B5AD-B0F76C2A4FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{716E1E45-7DBE-4279-B5AD-B0F76C2A4FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{716E1E45-7DBE-4279-B5AD-B0F76C2A4FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AADCD25F-C0FB-4C2C-AE8A-5FCE9A2EFA0A} = {521F8968-FCF5-4459-9EEC-5D5F4289B17C}
 		{147A18C3-F403-44CB-8072-FEE49ED535BA} = {521F8968-FCF5-4459-9EEC-5D5F4289B17C}
+		{716E1E45-7DBE-4279-B5AD-B0F76C2A4FC2} = {521F8968-FCF5-4459-9EEC-5D5F4289B17C}
 	EndGlobalSection
 EndGlobal

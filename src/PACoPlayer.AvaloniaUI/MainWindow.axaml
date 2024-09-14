@@ -1,0 +1,63 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:PACoPlayer.AvaloniaUI"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+        x:Class="PACoPlayer.AvaloniaUI.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="PACoPlayer">
+    <!--
+Using Avalonia UI style markdown, create a UI that looks like a video player with debug output. Have two main columns. The left column contains the viewport for the video. Our video is really just a sequence of images - so provide a surface that we can draw bitmaps to. The right column should have a stack of controls. On top should be the playback controls. There should be buttons for play, step forward, step backward, and restart. Then there should be a group of text fields that show information such as the number of frames in the video, the video dimensions, etc. Then there should be a list box that shows a list of opcodes that belong to the current frame. After that should be a multi-line text box that can take up the remaining space on the column that displays hexadecimal debug information. You can use design-time placeholder values for now.
+-->
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open file..." Command="{Binding OpenFileCommand}" />
+                <Separator />
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <Grid ColumnDefinitions="1*, 1*">
+            <!-- Left Column: Video Viewport -->
+            <Border Grid.Column="0" BorderBrush="#222325" BorderThickness="1" Margin="10">
+                <Panel Background="Black">
+                    <Image Name="VideoViewport" Stretch="Uniform" />
+                </Panel>
+            </Border>
+
+            <!-- Right Column: Controls and Debug Info -->
+            <StackPanel Grid.Column="1" Margin="10">
+                <!-- Playback Controls -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Button Content="⏮" Margin="5" Command="{Binding RestartCommand}" />
+                    <Button Content="⏪" Margin="5" Command="{Binding StepBackwardCommand}" />
+                    <Button Content="▶" Margin="5" Command="{Binding PlayCommand}" />
+                    <Button Content="⏩" Margin="5" Command="{Binding StepForwardCommand}" />
+                    <Button Content="⏭" Margin="5" Command="{Binding StepForwardCommand}" />
+                </StackPanel>
+
+                <!-- Video Information -->
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" Margin="0,0,0,10">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Frame:" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding CurrentFrame}" Margin="5,0,0,0" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Dimensions:" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding VideoDimensions}" Margin="5,0,0,0" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="FPS:" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Fps}" Margin="5,0,0,0" />
+                </Grid>
+
+                <!-- Opcode List -->
+                <TextBlock Text="Opcodes in frame:" Margin="0,0,0,5" />
+                <ListBox Height="150" Margin="0,0,0,10"
+                         ItemsSource="{Binding Opcodes}"
+                         SelectedItem="{Binding SelectedOpcode}" />
+
+                <!-- Debug Output -->
+                <TextBlock Text="Opcode data:" Margin="0,0,0,5" />
+                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="200" Text="{Binding DebugOutput}" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>
