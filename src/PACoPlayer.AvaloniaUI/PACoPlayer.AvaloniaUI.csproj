@@ -17,4 +17,8 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.1" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PACoPlayer.Decoder\PACoPlayer.Decoder.csproj" />
+    </ItemGroup>
 </Project>

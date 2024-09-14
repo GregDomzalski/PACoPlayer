@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:PACoPlayer.AvaloniaUI"
         mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+        Width="1000" Height="600"
         x:Class="PACoPlayer.AvaloniaUI.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="PACoPlayer">
@@ -52,7 +53,7 @@ Using Avalonia UI style markdown, create a UI that looks like a video player wit
                 <TextBlock Text="Opcodes in frame:" Margin="0,0,0,5" />
                 <ListBox Height="150" Margin="0,0,0,10"
                          ItemsSource="{Binding Opcodes}"
-                         SelectedItem="{Binding SelectedOpcode}" />
+                         SelectedIndex="{Binding SelectedOpcodeIndex}" />
 
                 <!-- Debug Output -->
                 <TextBlock Text="Opcode data:" Margin="0,0,0,5" />
